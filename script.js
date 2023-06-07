@@ -2,6 +2,14 @@ const rock = "Rock";
 const paper = "Paper";
 const scissors = "Scissors";
 
+const chooseRock = document.querySelector(".rock");
+const choosePaper = document.querySelector(".paper");
+const chooseScissors = document.querySelector(".scissors");
+chooseRock.addEventListener("click", () => playRound(rock));
+choosePaper.addEventListener("click", () => playRound(paper));
+chooseScissors.addEventListener("click", () => playRound(scissors));
+
+
 
 function getComputerChoice() {
     const num = Math.floor(Math.random() * 100) % 3;
@@ -16,19 +24,24 @@ function getComputerChoice() {
 }
 
 
-function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toUpperCase().slice(0,1) + playerSelection.toLowerCase().slice(1);
+function playRound(playerSelection) {
+    const computerSelection = getComputerChoice();
+    playerSelection = playerSelection.toUpperCase().slice(0,1) + 
+                      playerSelection.toLowerCase().slice(1);
+
+    let results = "";
+    
     if (playerSelection === computerSelection) {
-        return "It's a tie!!!";
+        results = "It's a tie!!!";
     } else if (playerSelection === rock && computerSelection === paper
              || playerSelection === paper && computerSelection === scissors
              || playerSelection === scissors && computerSelection === rock) {
-        return "You Lose! " + computerSelection + " beats " + playerSelection;   
+        results = "You Lose! " + computerSelection + " beats " + playerSelection;   
     } else {
-        return "You Win! " + playerSelection + " beats " + computerSelection;
+        results = "You Win! " + playerSelection + " beats " + computerSelection;
     }
 
-
+    document.querySelector("#results").textContent = results;
 }
 
 let playerScore = 0;
@@ -36,7 +49,8 @@ let computerScore = 0;
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        const round = playRound(window.prompt("Rock, Paper or Scissors?"), getComputerChoice());
+        const round = playRound(window.prompt("Rock, Paper or Scissors?"), 
+                                getComputerChoice());
         console.log(round);
         if (round.charAt(4) === "W") {
             playerScore++;
