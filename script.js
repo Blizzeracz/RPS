@@ -1,14 +1,16 @@
 const rock = "Rock";
 const paper = "Paper";
 const scissors = "Scissors";
+let playerScore = 0;
+let computerScore = 0;
 
 
 const buttons = document.querySelectorAll("button");
-buttons.forEach(button => button.addEventListener("click", () => playRound(button.value)));
+buttons.forEach(button => button.addEventListener("click", 
+                                                () => playRound(button.value)));
 
 
-let playerScore = 0;
-let computerScore = 0;
+
 
 
 function getComputerChoice() {
@@ -23,11 +25,11 @@ function getComputerChoice() {
 
 }
 
-const computerChoice = document.querySelector("#computer #choice");
-const playerChoice = document.querySelector("#player #choice");
+
 
 function updateChoice(player, computer) {
-
+    const computerChoice = document.querySelector("#computer #choice");
+    const playerChoice = document.querySelector("#player #choice");
     switch (computer) {
         case rock:
             computerChoice.textContent = "🪨";
@@ -71,24 +73,47 @@ function updateChoice(player, computer) {
                 case scissors:
                     playerChoice.textContent = "✂️";
                     return;
-            }
-           
-            
+            }      
     }
-
-    
-
-        
  }
 
 
-const playerText = document.querySelector('#player #text');
-const computerText = document.querySelector('#computer #text');
+
 function updateScore() {
+    const playerText = document.querySelector('#player #text');
+    const computerText = document.querySelector('#computer #text');
     playerText.textContent = "Points: " + playerScore;
     computerText.textContent = "Points: " + computerScore;
-    
+
+    if (playerScore === 5 || computerScore === 5) {
+        playerScore = 0;
+        computerScore = 0;
+        restartRound();
+    }
 }
+const center = document.querySelector('#center');
+function restartRound() {
+    buttons.forEach(button => button.disabled = true);
+
+    
+    const playAgain = document.createElement('button');
+    playAgain.textContent = "Play Again";
+    playAgain.setAttribute('id', 'playAgain');
+    center.appendChild(playAgain);
+    again = document.querySelector('#playAgain');
+    again.addEventListener("click", () => {
+        center.removeChild(playAgain);
+        buttons.forEach(button => button.disabled = false);
+        updateScore();
+        document.querySelector("#results").textContent = '';
+        
+    })
+
+}
+
+
+
+
 
 function playRound(playerSelection) {
     const computerSelection = getComputerChoice();
@@ -118,12 +143,8 @@ function playRound(playerSelection) {
  
 
     if (playerScore === 5) {
-        playerScore = 0;
-        computerScore = 0;
         results = "You won the game!";
     } else if (computerScore === 5) {
-        playerScore = 0;
-        computerScore = 0;
         results = "You lost the game...";
     } 
     

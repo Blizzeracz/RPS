@@ -24,7 +24,8 @@ h2 {
 /* The main part of the code */
 body {
   background-color: rgb(35, 32, 54);
-  margin-bottom: 100px;
+  
+ 
   
 }
 
@@ -37,6 +38,7 @@ body {
 #profile {
   display: flex;
   gap: 100px;
+  flex: 1 1;
 }
 
 button {
@@ -46,25 +48,33 @@ button {
   background-color: antiquewhite;
   border-radius: 15px;
   align-self: center;
+  border: none;
+
 }
 
-#clickable {
-  width: auto;
-  display: flex;
-  align-items: center;
-  gap: 100px;
+button:hover {
+  background-color: brown;
+  transition: 0.3s;
+  transform: scale(1.1);
 }
+
+button:active {
+  background-color: black;
+  transform: scale(0.5);
+  
+}
+
 
 #instructions {
   color: aliceblue;
   text-align: center;
   font-family: courier;
-  margin: 100px;
+  margin: 50px;
 }
 
 #profile {
   color: aqua;
-  margin: 0 100px 100px;
+  margin: 0 50px 50px;
   display: flex;
   align-items: center;
  
@@ -85,11 +95,43 @@ img {
 
 #text {
   text-align: center;
+  font-size: 50px;
 }
 
 #results {
-  color: bisque;
+  color: rgb(175, 153, 127);
   font-size: 50px;
+  margin: 50px;
+  width: 700px;
+  height: 100px;
+  text-align: center;
+}
+
+#center {
+  display: flex;
+  flex-direction: column;
+}
+
+#playAgain {
+  font-size: 50px;
+  width: 500px;
+  height: 100px;
+  background-color: antiquewhite;
+  border-radius: 15px;
+  align-self: center;
+  border: none; 
+
+}
+
+
+
+#clickable {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  justify-content: center;
+  
 }
 
 #choice {
@@ -99,3 +141,13 @@ img {
   text-align: center;
 }
   
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(45, 45, 94);
+  color: white;
+  font-family: 'Roboto', arial;
+  padding: 30px;
+}
