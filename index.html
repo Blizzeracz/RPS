@@ -6,13 +6,62 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>RPS</title>
 </head>
 <body>
-    <button class="rock"> Rock </button>
-    <button class="paper"> Paper </button>
-    <button class="scissors"> Scissors </button>
-    <div id="results"></div>
+    <div class="header">
+        <h1>ROCK PAPER SCISSORS</h1>
+    </div>
+
+    <main class="main">
+        <div id="instructions">The rules are simple.
+            
+            
+            <br>🪨  beats ✂️
+            <br>✂️ beats 📝
+            <br>📝 beats 🪨  
+            <br>The player that wins 5 games 
+                            wins the game!
+        </div>
+        
+        <div id="profile">
+            <div id="player">
+                <img src="https://cdn4.iconfinder.com/data/icons/symbols-vol-1-1/40/user-person-single-id-account-player-male-female-512.png" alt="A human icon">
+                <div id="text">
+                    Points: 0
+                </div>
+                <div id="choice">
+                </div>    
+            </div>
+
+            <h2> VS </h2>
+
+            <div id="computer">
+                <img src="https://cdn-icons-png.flaticon.com/512/2432/2432846.png" alt="A robot icon">
+                <div id="text">
+                    Points: 0
+                </div>
+                <div id="choice">
+                </div>
+            
+            </div>
+        </div>
+
+        <div id="clickable">
+            <button value="rock"> 🪨 </button>
+            <button value="paper">  📝 </button>
+            <button value="scissors"> ✂️ </button>
+        </div>
+
+        <div id="results"></div>
+    </main>
+
+    <footer>
+
+        
+    </footer>
+
+   
     
 </body>
 </html>
